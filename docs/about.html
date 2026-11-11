@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Krishna Luharuka</title>
+    <meta name="description" content="Krishna Luharuka: teacher of Computer Science and Mathematics, learner of AI, and builder of things for the web.">
+
+    <!-- applies the saved theme before first paint, so dark mode doesn't flash white -->
+    <script>
+        try {
+            var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.dataset.theme = t;
+        } catch (e) {}
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+        integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous">
+    <!-- our stylesheet goes after Bootstrap so our rules win -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="preloader"></div>
+
+    <!-- ===== Navigation ===== -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">KL<span></span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu"
+                aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="nav-menu">
+                <div class="navbar-nav align-items-lg-center">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link active" href="about.html" aria-current="page">About</a>
+                    <a class="nav-link" href="index.html#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                    <button class="theme-toggle nav-link" id="theme-toggle" type="button" aria-label="Switch theme"><i class="bi bi-moon"></i></button>
+                </div>
+                <div class="nav-social d-lg-none">
+                    <a class="" href="https://github.com/krishnaluharuka6" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a class="" href="https://www.linkedin.com/in/krishna-luharuka/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+<a class="" href="https://www.instagram.com/krishna.luharuka11" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+<a class="" href="https://www.facebook.com/krishna.luharuka.52" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+<a class="" href="https://wa.me/9779869141935" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- social links pinned to the left on large screens -->
+    <aside class="sidebar d-none d-lg-flex">
+        <div class="line"></div>
+        <a class="social-link" href="https://github.com/krishnaluharuka6" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a class="social-link" href="https://www.linkedin.com/in/krishna-luharuka/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+<a class="social-link" href="https://www.instagram.com/krishna.luharuka11" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+<a class="social-link" href="https://www.facebook.com/krishna.luharuka.52" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+<a class="social-link" href="https://wa.me/9779869141935" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-square-whatsapp"></i></a>
+    </aside>
+
+    <main>
+
+        <!-- ===== Intro ===== -->
+        <section class="about-intro py-5 my-5" id="intro">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 order-2 order-md-1 pe-md-5">
+                        <h2 class="section-title">Hi...</h2>
+                        <p>I'm Krishna Luharuka, an educator, a learner, and an aspiring AI student. I enjoy understanding how things work and, perhaps most importantly, solving problems and finding simple, meaningful ways to explain complex ideas.</p>
+                        <p>As a teacher, I try to make learning feel less overwhelming and more relatable, often using examples, stories, and real-life connections.</p>
+                        <p>I'm still learning, still experimenting, and still figuring out where this journey will take me. But I believe every experience, whether in a classroom, a project, or a difficult problem, has something to teach.</p>
+                        <p>I bring a sense of purpose to my work. When I'm not immersed in it, you'll find me recharging through spirituality or connecting with nature. I believe life is about inner peace and becoming the best version of yourself.</p>
+                    </div>
+                    <div class="col-12 col-md-4 order-1 order-md-2 py-3 d-flex justify-content-center align-items-start">
+                        <div class="profile-photo" role="img" aria-label="Portrait of Krishna"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Random facts ===== -->
+        <section id="random-facts">
+            <div class="container">
+                <h2 class="section-title">Random Facts</h2>
+                <div class="fact-pills">
+                    <p>Smiling faces brighten my day.</p>
+                    <p>Ride and meditation: my way to recharge</p>
+                    <p>Pokhara: where I find a little more peace</p>
+                    <p>Experiments on food: my favourite side project</p>
+                    <p>Classroom management: a skill I never knew I needed</p>
+                    <p>100% lesson preparation, 20% actual teaching, 80% "Can we please have some silence?"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Quick facts ===== -->
+        <section id="quick-facts">
+            <div class="container">
+                <h2 class="section-title">Quick Facts</h2>
+                <p class="section-sub">A little about the person behind the screen.</p>
+                <div class="quick-grid">
+
+                    <article class="quick-box wide" data-animate>
+                        <div class="quick-label">Favourite Quote</div>
+                        <blockquote>"Why do you expect the world to be changed one day so that you could smile? Why don't you smile and see the world changed?"</blockquote>
+                    </article>
+
+                    <article class="quick-box wide" data-animate style="--delay:.15s">
+                        <div class="quick-label">Professional Snapshot</div>
+                        <ul class="fact-list">
+                            <li><b>Pursuing:</b> Master's of Information Technology, Artificial Intelligence</li>
+                            <li><b>Teaching:</b> Computer Science and Mathematics</li>
+                            <li><b>Exploring:</b> Research and classroom management</li>
+                        </ul>
+                    </article>
+
+                    <article class="quick-box narrow" data-animate style="--delay:.3s">
+                        <div class="quick-label">Recently, My Life...</div>
+                        <div class="terminal">
+                            <div><span class="prompt">$</span> git checkout teaching</div>
+                            <div><span class="prompt">$</span> git merge patience</div>
+                            <div><span class="prompt">$</span> git stash research</div>
+                            <div class="comment"># TODO: remember where I left my research.</div>
+                        </div>
+                    </article>
+
+                    <article class="quick-box medium" data-animate style="--delay:.45s">
+                        <div class="quick-label">Core Competencies</div>
+                        <div class="skill-tags">
+                            <span>Leadership</span><span>Communication</span><span>Critical Analysis</span>
+                            <span>Teamwork</span><span>MS Office</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="stack">
+            <div class="container">
+                <h2 class="section-title">Tech Stack</h2>
+                <ul class="stack">
+<li><div class="icon"><img src="images/icons/laravel.png" alt="" loading="lazy"></div><span>Laravel</span></li>
+<li><div class="icon"><img src="images/icons/bootstrap.png" alt="" loading="lazy"></div><span>Bootstrap</span></li>
+<li><div class="icon"><img src="images/icons/wordpress.ico" alt="" loading="lazy"></div><span>WordPress</span></li>
+<li><div class="icon"><img src="images/icons/github.png" alt="" loading="lazy"></div><span>GitHub</span></li>
+<li><div class="icon"><img src="images/icons/mysql.webp" alt="" loading="lazy"></div><span>MySQL</span></li>
+<li><div class="icon"><img src="images/icons/php.png" alt="" loading="lazy"></div><span>PHP</span></li>
+<li><div class="icon"><img src="images/icons/python.png" alt="" loading="lazy"></div><span>Python</span></li>
+<li><div class="icon"><img src="images/icons/css.png" alt="" loading="lazy"></div><span>CSS</span></li>
+<li><div class="icon"><img src="images/icons/html.png" alt="" loading="lazy"></div><span>HTML</span></li>
+<li><div class="icon"><i class="fa-brands fa-js" style="color:#f0c000" aria-hidden="true"></i></div><span>JavaScript</span></li>
+<li><div class="icon"><img src="images/icons/c.png" alt="" loading="lazy"></div><span>C</span></li>
+<li><div class="icon"><img src="images/icons/java.png" alt="" loading="lazy"></div><span>Java</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== Contact ===== -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-text col-lg-6 mx-auto">
+                    <h2>Let's Connect</h2>
+                    <p>I'm always happy to connect with curious minds, fellow educators, learners, and people who enjoy sharing ideas.</p>
+                    <p>Whether it's about technology, teaching, research, a potential collaboration, or simply a friendly hello, my inbox is open! 😊</p>
+                    <button class="copy-email" id="copy-email" type="button" data-email="krishna.luharuka11@gmail.com" title="Click to copy">
+                        <i class="bi bi-copy"></i>krishna.luharuka11@gmail.com
+                    </button>
+                    <p class="mt-3 mb-0">or find me on</p>
+                    <div class="contact-icons">
+                        <a class="social-link" href="https://github.com/krishnaluharuka6" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a class="social-link" href="https://www.linkedin.com/in/krishna-luharuka/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+<a class="social-link" href="https://www.instagram.com/krishna.luharuka11" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+<a class="social-link" href="https://www.facebook.com/krishna.luharuka.52" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+<a class="social-link" href="https://wa.me/9779869141935" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" role="status"><i class="bi bi-check-circle-fill"></i> Email copied to clipboard!</div>
+
+    <footer class="site-footer">
+        <p>Thanks for checking out my site!</p>
+        <p>Krishna Luharuka © 2025</p>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

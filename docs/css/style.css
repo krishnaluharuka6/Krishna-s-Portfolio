@@ -1,0 +1,500 @@
+/* =========================================================
+   Krishna Luharuka — teaching portfolio
+   Sections:
+   1. Theme tokens (light + dark)
+   2. Base
+   3. Preloader & navbar
+   4. Social sidebar
+   5. Home (hero, pull quote)
+   6. Projects
+   7. Tech stack
+   8. About page
+   9. Contact, footer, back-to-top
+   10. Animation
+   ========================================================= */
+
+
+/* ---------- 1. Theme tokens ----------
+   Every colour on the site comes from here. To re-theme,
+   change these values and nothing else. */
+:root {
+    --bg: #f7f5ef;
+    --surface: #ffffff;
+    --text: #26332d;
+    --muted: #65736c;
+    --border: #d9e0db;
+    --primary: #1f4534;        /* deep green: headings, buttons */
+    --on-primary: #f7f5ef;     /* text that sits on --primary */
+    --accent: #b8664a;         /* terracotta: small highlights */
+    --shadow: 0 2px 10px rgba(36, 53, 45, .12);
+
+    --font-body: 'Poppins', system-ui, sans-serif;
+    --font-heading: 'Lora', Georgia, serif;
+}
+
+[data-theme="dark"] {
+    --bg: #14211b;
+    --surface: #1c2d25;
+    --text: #e8efe9;
+    --muted: #a3b3aa;
+    --border: #2f4639;
+    --primary: #8fc7a6;        /* lighter green so it reads on dark */
+    --on-primary: #14211b;
+    --accent: #e39a7a;
+    --shadow: 0 2px 10px rgba(0, 0, 0, .45);
+}
+
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;   /* keeps anchor targets clear of the fixed navbar */
+}
+
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    transition: background-color .4s, color .4s;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); }
+
+section { margin-bottom: 50px; }
+
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+
+/* ---------- 3. Preloader & navbar ---------- */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--primary) url("../images/preloadernobg.gif") no-repeat center;
+    transition: opacity .6s, visibility .6s;
+}
+
+#preloader.hidden { opacity: 0; visibility: hidden; }
+
+.navbar {
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    z-index: 100;
+    transition: background-color .4s;
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* the small dot after "KL" */
+.navbar-brand span {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-left: 2px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.nav-link {
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-left: 1.5rem;
+    transition: color .3s;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active { color: var(--accent); }
+
+.navbar-toggler { border-color: var(--border); }
+
+/* Bootstrap's hamburger is dark grey; this one follows the theme */
+.navbar-toggler-icon {
+    position: relative;
+    width: 1.5em;
+    height: 2px;
+    background: var(--primary);
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+}
+.navbar-toggler-icon::before { top: -7px; }
+.navbar-toggler-icon::after  { top: 7px; }
+
+.theme-toggle {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+.theme-toggle:hover { color: var(--accent); }
+
+/* social icons shown inside the mobile menu */
+.nav-social { margin-top: .75rem; }
+.nav-social a { margin: 0 .6rem; font-size: 1.4rem; text-decoration: none; color: var(--text); }
+
+@media (max-width: 991px) {
+    .nav-link { margin-left: 0; padding: .6rem 0; }
+    .theme-toggle { padding: .6rem 0; }
+}
+
+
+/* ---------- 4. Social sidebar (desktop only) ---------- */
+.sidebar {
+    position: fixed;
+    left: 1.5rem;
+    top: 110px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar .line {
+    width: 2px;
+    height: 90px;
+    background: var(--accent);
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+    color: var(--text);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color .3s, color .3s, border-color .3s;
+}
+
+.social-link:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-primary);
+}
+
+/* leave room for the sidebar so text never slides underneath it */
+@media (min-width: 992px) {
+    main { padding-left: 80px; }
+}
+
+
+/* ---------- 5. Home ---------- */
+.home-content h3 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.home-content h3 span,
+.home-content h1 span { color: var(--accent); }
+
+.home-content h1 {
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    font-weight: 700;
+}
+
+.home-content p { font-size: 1.1rem; line-height: 1.7; }
+
+.btn-box {
+    display: inline-block;
+    padding: .7rem 1.8rem;
+    border: 1px solid var(--primary);
+    border-radius: 40px;
+    color: var(--primary);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background-color .3s, color .3s;
+}
+
+.btn-box:hover {
+    background: var(--primary);
+    color: var(--on-primary);
+}
+
+/* profile photo: blob shape, a second photo slides in on hover */
+.profile-photo {
+    position: relative;
+    width: min(320px, 80vw);
+    aspect-ratio: 320 / 350;
+    border: 9px solid var(--surface);
+    border-radius: 42% 58% 52% 48% / 48% 44% 56% 52%;
+    background: url("../images/krishna/krishna1.jpg") center / cover;
+    box-shadow: var(--shadow);
+}
+
+.profile-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 0;
+    border-radius: inherit;
+    background: url("../images/krishna/krishna3.jpg") center / cover;
+    transition: width .5s;
+}
+
+.profile-photo:hover::before { width: 100%; }
+
+/* proverb under the hero */
+.pull-quote {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+}
+
+.mark {
+    display: block;
+    height: 2.5rem;
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--accent);
+    background-color: transparent;
+}
+
+.pull-quote h2 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 700; }
+.pull-quote cite { display: block; margin-top: .75rem; color: var(--muted); }
+
+
+/* ---------- 6. Projects ----------
+   Cards show their description all the time. The old hover-only
+   overlay couldn't be used on a phone. */
+.project {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.project img {
+    display: block;
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.project-info { padding: 1rem 1.25rem 1.25rem; }
+.project-info h3 { margin-bottom: .5rem; font-size: 1.15rem; color: var(--primary); }
+.project-info p  { margin-bottom: .75rem; font-size: .92rem; line-height: 1.6; color: var(--muted); }
+
+.project-links a { color: var(--accent); font-size: 1.4rem; text-decoration: none; }
+.project-links a:hover { color: var(--primary); }
+
+.tag {
+    display: inline-block;
+    margin: 0 .3rem .3rem 0;
+    padding: .15rem .6rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: .75rem;
+    color: var(--muted);
+}
+
+
+/* ---------- 7. Tech stack ---------- */
+.stack {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.stack li { text-align: center; }
+
+.stack .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto .5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;            /* logos are drawn for white, even in dark mode */
+    box-shadow: var(--shadow);
+    font-size: 2rem;
+    transition: transform .3s;
+}
+
+.stack li:hover .icon { transform: translateY(-6px); }
+.stack img { width: 44px; height: 44px; object-fit: contain; }
+.stack span { font-size: .9rem; }
+
+
+/* ---------- 8. About page ---------- */
+.about-intro p { font-size: 1.1rem; line-height: 1.8; }
+
+.fact-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+.fact-pills p {
+    margin: 0;
+    padding: .6rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    background: var(--surface);
+    font-size: .95rem;
+}
+
+.section-sub { margin: -1.25rem 0 1.5rem; color: var(--muted); }
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+.quick-box {
+    padding: 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    transition: transform .3s, border-color .3s;
+}
+
+.quick-box:hover { transform: translateY(-4px); border-color: var(--primary); }
+
+.quick-box.wide   { grid-column: span 5; }
+.quick-box.medium { grid-column: span 4; }
+.quick-box.narrow { grid-column: span 3; }
+
+.quick-label { margin-bottom: .75rem; font-weight: 700; color: var(--primary); }
+
+.quick-box p,
+.fact-list li { font-size: .95rem; line-height: 1.6; }
+
+.quick-box blockquote {
+    margin: 0;
+    padding-left: .8rem;
+    border-left: 3px solid var(--primary);
+    font-style: italic;
+}
+
+.fact-list { margin: 0; padding: 0; list-style: none; }
+.fact-list li { margin-bottom: .5rem; }
+.fact-list b { font-weight: 600; }
+
+.terminal { font-family: monospace; font-size: .8rem; line-height: 2; }
+.terminal .prompt { color: var(--accent); font-weight: 700; }
+.terminal .comment { margin-top: .5rem; color: var(--muted); font-style: italic; }
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+.skill-tags span {
+    padding: .3rem .7rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: .8rem;
+    transition: background-color .3s, color .3s;
+}
+.skill-tags span:hover { background: var(--primary); color: var(--on-primary); }
+
+/* tablet: two cards per row. phone: one per row */
+@media (max-width: 991px) { .quick-box { grid-column: span 6 !important; } }
+@media (max-width: 575px) { .quick-box { grid-column: span 12 !important; } }
+
+
+/* ---------- 9. Contact, footer, back-to-top ---------- */
+.contact-text { text-align: center; }
+.contact-text h2 { margin-bottom: 1.5rem; font-size: clamp(2rem, 6vw, 3.5rem); color: var(--primary); }
+.contact-text p { font-size: 1.1rem; line-height: 1.7; }
+
+.copy-email {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.copy-email i { margin-right: .4rem; color: var(--primary); }
+.copy-email:hover { color: var(--accent); }
+
+.contact-icons { display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0; }
+
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 50px;
+    z-index: 200;
+    transform: translateX(-50%);
+    padding: .75rem 1.25rem;
+    border-radius: 6px;
+    background: var(--primary);
+    color: var(--on-primary);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s, visibility .4s;
+}
+#toast.show { opacity: 1; visibility: visible; }
+
+.site-footer { text-align: center; font-weight: 300; color: var(--muted); }
+.site-footer p { margin: 0; }
+
+.back-to-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--on-primary);
+    text-decoration: none;
+}
+
+
+/* ---------- 10. Animation ----------
+   Add data-animate to anything that should ease in on load.
+   style="--delay: .3s" staggers it. */
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+[data-animate] {
+    opacity: 0;
+    animation: fade-up .8s ease forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+/* if a device asks for less motion, give it none */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    [data-animate] { opacity: 1; }
+}
