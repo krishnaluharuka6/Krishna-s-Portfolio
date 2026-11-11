@@ -353,7 +353,7 @@ section { margin-bottom: 50px; }
 
 
 /* ---------- 8. About page ---------- */
-.about-intro p { font-size: 1.1rem; line-height: 1.8; }
+.about-intro p { font-size: 1.1rem; line-height: 1.8; text-align: justify; }
 
 .fact-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
 
